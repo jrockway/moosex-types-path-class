@@ -1,0 +1,23 @@
+---
+name: MooseX-Types-Path-Class
+version: 0.01
+author:
+  - 'Todd Hepler <thepler@employees.org>'
+abstract: A Path::Class type library for Moose
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  MooseX::Getopt: 0.05
+  MooseX::Types: 0.04
+  Path::Class: 0.16
+build_requires:
+  Test::More: 0
+provides:
+  MooseX::Types::Path::Class:
+    file: lib/MooseX/Types/Path/Class.pm
+    version: 0.01
+generated_by: Module::Build version 0.2807
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

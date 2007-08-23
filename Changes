@@ -1,0 +1,8 @@
+Revision history for MooseX-Types-Path-Class
+
+0.01   Tue Aug 09 2007
+       renamed from MooseX::Path::Class to MooseX::Types::Path::Class
+
+       Tue Jul 17 2007
+       Initial creation.
+
