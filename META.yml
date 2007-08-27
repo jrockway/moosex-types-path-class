@@ -1,6 +1,6 @@
 ---
 name: MooseX-Types-Path-Class
-version: 0.01
+version: 0.02
 author:
   - 'Todd Hepler <thepler@employees.org>'
 abstract: A Path::Class type library for Moose
@@ -12,11 +12,11 @@ requires:
   MooseX::Types: 0.04
   Path::Class: 0.16
 build_requires:
-  Test::More: 0
+  Test::More: 0.62
 provides:
   MooseX::Types::Path::Class:
     file: lib/MooseX/Types/Path/Class.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.2807
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

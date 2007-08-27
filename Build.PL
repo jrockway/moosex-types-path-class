@@ -15,9 +15,11 @@ my $builder = Module::Build->new(
     optional => {
     },
     build_requires => {
-        'Test::More'     => 0,
+        'Test::More'     => '0.62',
     },
+    create_makefile_pl  => 'traditional',
     add_to_cleanup      => [ 'MooseX-Types-Path-Class-*' ],
 );
 
 $builder->create_build_script();
+

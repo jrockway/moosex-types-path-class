@@ -3,7 +3,7 @@ package MooseX::Types::Path::Class;
 use warnings FATAL => 'all';
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use MooseX::Getopt;
 use Path::Class ();
@@ -92,7 +92,7 @@ MooseX::Types::Path::Class - A Path::Class type library for Moose
 
   # these attributes are coerced to the
   # appropriate Path::Class objects
-  Foo->new( dir => '/some/directory/', file => '/some/file' );
+  MyClass->new( dir => '/some/directory/', file => '/some/file' );
 
   
 =head1 DESCRIPTION

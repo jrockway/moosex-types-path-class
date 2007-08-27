@@ -1,8 +1,14 @@
 Revision history for MooseX-Types-Path-Class
 
-0.01   Tue Aug 09 2007
-       renamed from MooseX::Path::Class to MooseX::Types::Path::Class
+0.02 Mon Aug 27 2007
+       
+    * pod update
 
-       Tue Jul 17 2007
-       Initial creation.
+    * attempted fixes for cpantesters reports
+
+0.01 Tue Aug 09 2007
+
+    * renamed from MooseX::Path::Class to MooseX::Types::Path::Class
+
+    * Initial creation in SVN Tue Jul 17 2007
 
