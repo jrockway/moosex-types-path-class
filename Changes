@@ -1,5 +1,13 @@
 Revision history for MooseX-Types-Path-Class
 
+0.03 Mon Nov 28 2007
+
+    * refactored a bit (less code now)
+
+    * use Module::Install instead of Module::Build
+
+    * minor pod and test tweaks
+
 0.02 Mon Aug 27 2007
        
     * pod update

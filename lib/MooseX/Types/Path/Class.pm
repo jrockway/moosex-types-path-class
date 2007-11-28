@@ -3,7 +3,8 @@ package MooseX::Types::Path::Class;
 use warnings FATAL => 'all';
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
+our $AUTHORITY = 'cpan:THEPLER';
 
 use MooseX::Getopt;
 use Path::Class ();
@@ -13,53 +14,33 @@ use MooseX::Types
 
 use MooseX::Types::Moose qw(Object Str ArrayRef);
 
-subtype Dir,
-    as Object, where { $_->isa('Path::Class::Dir') };
+for my $type ( Dir, 'Path::Class::Dir' ) {
 
-coerce Dir,
-    from Str,      via { Path::Class::Dir->new($_) },
-    from ArrayRef, via { Path::Class::Dir->new(@$_) };
+    subtype $type,
+        as Object, where { $_->isa('Path::Class::Dir') };
 
-MooseX::Getopt::OptionTypeMap->add_option_type_to_map(
-    Dir, '=s',
-);
+    coerce $type,
+        from Str,      via { Path::Class::Dir->new($_) },
+        from ArrayRef, via { Path::Class::Dir->new(@$_) };
 
+    MooseX::Getopt::OptionTypeMap->add_option_type_to_map(
+        $type, '=s',
+    );
+}
 
-subtype 'Path::Class::Dir',
-    as Object, where { $_->isa('Path::Class::Dir') };
+for my $type ( File, 'Path::Class::File' ) {
 
-coerce 'Path::Class::Dir',
-    from Str,      via { Path::Class::Dir->new($_) },
-    from ArrayRef, via { Path::Class::Dir->new(@$_) };
+    subtype $type,
+        as Object, where { $_->isa('Path::Class::File') };
 
-MooseX::Getopt::OptionTypeMap->add_option_type_to_map(
-    'Path::Class::Dir', '=s',
-);
+    coerce $type,
+        from Str,      via { Path::Class::File->new($_) },
+        from ArrayRef, via { Path::Class::File->new(@$_) };
 
-
-subtype File,
-    as Object, where { $_->isa('Path::Class::File') };
-
-coerce File,
-    from Str,      via { Path::Class::File->new($_) },
-    from ArrayRef, via { Path::Class::File->new(@$_) };
-
-MooseX::Getopt::OptionTypeMap->add_option_type_to_map(
-    File, '=s',
-);
-
-
-subtype 'Path::Class::File',
-    as Object, where { $_->isa('Path::Class::File') };
-
-coerce 'Path::Class::File',
-    from Str,      via { Path::Class::File->new($_) },
-    from ArrayRef, via { Path::Class::File->new(@$_) };
-
-MooseX::Getopt::OptionTypeMap->add_option_type_to_map(
-    'Path::Class::File', '=s',
-);
-
+    MooseX::Getopt::OptionTypeMap->add_option_type_to_map(
+        $type, '=s',
+    );
+}
 
 1;
 __END__
@@ -131,7 +112,9 @@ L<Moose>, L<MooseX::Types>, L<MooseX::Getopt>, L<Path::Class>
 
 =head1 BUGS AND LIMITATIONS
 
-No bugs have been reported.
+All complex software has bugs lurking in it, and this module is
+no exception. If you find a bug please either email the author, or add
+the bug to cpan-RT L<http://rt.cpan.org>.
 
 
 =head1 AUTHOR

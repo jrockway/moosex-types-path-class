@@ -1,6 +1,14 @@
-Build.PL
 Changes
+inc/Module/Install.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
 lib/MooseX/Types/Path/Class.pm
+Makefile.PL
 MANIFEST
 META.yml			# Will be created by "make dist"
 README
@@ -9,4 +17,3 @@ t/01.basic.t
 t/perlcritic.t
 t/pod-coverage.t
 t/pod.t
-Makefile.PL
