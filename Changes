@@ -1,5 +1,9 @@
 Revision history for MooseX-Types-Path-Class
 
+0.04 Mon Nov 29 2007
+
+    * fixed test on MSWin32 (cpantesters++)
+
 0.03 Mon Nov 28 2007
 
     * refactored a bit (less code now)

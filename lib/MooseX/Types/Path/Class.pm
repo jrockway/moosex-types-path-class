@@ -3,7 +3,7 @@ package MooseX::Types::Path::Class;
 use warnings FATAL => 'all';
 use strict;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 our $AUTHORITY = 'cpan:THEPLER';
 
 use MooseX::Getopt;

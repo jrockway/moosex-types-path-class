@@ -43,20 +43,25 @@ has 'file' => (
 package main;
 
 use Test::More;
+use Path::Class;
 plan tests => 20;
+
+my $dir = dir('', 'tmp');
+my $file = file('', 'tmp', 'foo');
 
 my $check = sub {
     my $o = shift;
     isa_ok( $o->dir, 'Path::Class::Dir' );
-    cmp_ok( $o->dir, 'eq', '/tmp', 'dir is /tmp' );
+    cmp_ok( $o->dir, 'eq', "$dir", "dir is $dir" );
     isa_ok( $o->file, 'Path::Class::File' );
-    cmp_ok( $o->file, 'eq', '/tmp/foo', 'file is /tmp/foo' );
+    cmp_ok( $o->file, 'eq', "$file", "file is $file" );
 };
 
 for my $class (qw(Foo Bar)) {
     my $o;
 
-    $o = $class->new( dir => '/tmp', file => [ '', 'tmp', 'foo' ] );
+#    $o = $class->new( dir => '/tmp', file => [ '', 'tmp', 'foo' ] );
+    $o = $class->new( dir => "$dir", file => [ '', 'tmp', 'foo' ] );
     isa_ok( $o, $class );
     $check->($o);
     @ARGV = qw(

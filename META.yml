@@ -18,4 +18,4 @@ requires:
   MooseX::Getopt: 0.05
   MooseX::Types: 0.04
   Path::Class: 0.16
-version: 0.03
+version: 0.04
