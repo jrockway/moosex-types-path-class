@@ -1,18 +1,18 @@
-MooseX-Types-Path-Class version 0.01
+MooseX-Types-Path-Class version 0.05
 
 INSTALLATION
 
 To install this module, run the following commands:
 
-    perl Build.PL
-    ./Build
-    ./Build test
-    ./Build install
+    perl Makefile.PL
+    make
+    make test
+    make install
 
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2007, Todd Hepler
+Copyright (C) 2007-2008, Todd Hepler
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

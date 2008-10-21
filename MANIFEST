@@ -9,11 +9,14 @@ inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/MooseX/Types/Path/Class.pm
 Makefile.PL
-MANIFEST
-META.yml			# Will be created by "make dist"
+MANIFEST			This list of files
+META.yml
 README
 t/00.load.t
 t/01.basic.t
+t/02.getopt.t
+t/03.subtype.t
+t/kwalitee.t
 t/perlcritic.t
 t/pod-coverage.t
 t/pod.t

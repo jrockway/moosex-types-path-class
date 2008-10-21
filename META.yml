@@ -1,21 +1,25 @@
---- 
-abstract: A Path::Class type library for Moose
-author: Todd Hepler  C<< <thepler@employees.org> >>
-build_requires: 
+---
+abstract: 'A Path::Class type library for Moose'
+author:
+  - 'Todd Hepler  C<< <thepler@employees.org> >>'
+build_requires:
   Test::More: 0.62
 distribution_type: module
-generated_by: Module::Install version 0.67
+generated_by: 'Module::Install version 0.77'
 license: perl
-meta-spec: 
-  url: http://module-build.sourceforge.net/META-spec-v1.3.html
-  version: 1.3
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
 name: MooseX-Types-Path-Class
-no_index: 
-  directory: 
+no_index:
+  directory:
     - inc
     - t
-requires: 
-  MooseX::Getopt: 0.05
+requires:
+  Class::MOP: 0
+  Moose: 0.39
   MooseX::Types: 0.04
   Path::Class: 0.16
-version: 0.04
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.05
