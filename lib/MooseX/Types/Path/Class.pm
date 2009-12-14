@@ -10,7 +10,7 @@ use Path::Class ();
 # TODO: export dir() and file() from Path::Class? (maybe)
 
 use MooseX::Types
-    -declare => [qw( Dir File )];
+    -declare => [qw( Dir File ExistingDir ExistingFile )];
 
 use MooseX::Types::Moose qw(Str ArrayRef);
 
@@ -20,13 +20,19 @@ class_type('Path::Class::File');
 subtype Dir, as 'Path::Class::Dir';
 subtype File, as 'Path::Class::File';
 
-for my $type ( 'Path::Class::Dir', Dir ) {
+subtype ExistingFile, as File, where { -e $_->stringify },
+  message { "File '$_' must exist." };
+
+subtype ExistingDir, as Dir, where { -e $_->stringify && -d $_->stringify },
+  message { "Directory '$_' must exist" };
+
+for my $type ( 'Path::Class::Dir', Dir, ExistingDir ) {
     coerce $type,
         from Str,      via { Path::Class::Dir->new($_) },
         from ArrayRef, via { Path::Class::Dir->new(@$_) };
 }
 
-for my $type ( 'Path::Class::File', File ) {
+for my $type ( 'Path::Class::File', File, ExistingFile ) {
     coerce $type,
         from Str,      via { Path::Class::File->new($_) },
         from ArrayRef, via { Path::Class::File->new(@$_) };
@@ -36,7 +42,7 @@ for my $type ( 'Path::Class::File', File ) {
 eval { require MooseX::Getopt; };
 if ( !$@ ) {
     MooseX::Getopt::OptionTypeMap->add_option_type_to_map( $_, '=s', )
-        for ( 'Path::Class::Dir', 'Path::Class::File', Dir, File, );
+        for ( 'Path::Class::Dir', 'Path::Class::File', Dir, File, ExistingDir, ExistingFile );
 }
 
 1;
@@ -73,7 +79,7 @@ MooseX::Types::Path::Class - A Path::Class type library for Moose
   # appropriate Path::Class objects
   MyClass->new( dir => '/some/directory/', file => '/some/file' );
 
-  
+
 =head1 DESCRIPTION
 
 MooseX::Types::Path::Class creates common L<Moose> types,
@@ -115,6 +121,12 @@ These exports can be used instead of the full class names.  Example:
       required => 1,
       coerce   => 1,
   );
+
+=item ExistingDir, ExistingFile
+
+Like File and Dir, but the files or directories must exist on disk
+when the type is checked, and the object on disk must be a file (for
+ExistingFile) or directory (for ExistingDir).
 
 Note that there are no quotes around Dir or File.
 
